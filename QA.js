@@ -4,7 +4,7 @@ function startButtonHandler() {
     });
 }
 
-//displays new question with updated score
+//displays question number with updated score
 function newQuestionAndScore() {
     const html = $(`<ul>
         <li id="js-answered">Question Number: 
@@ -30,7 +30,7 @@ function displayNewQuestion() {
                     <div id="js-answers"> </div>
                 </div>
                 <div class="col-12">
-                    <button type = "submit" id="answer" tabindex="5">Submit</button>
+                    <button type = "submit" id="answer">Submit</button>
                 </div>
             </form>`);
     $("#view_startQuiz").hide();
@@ -54,15 +54,19 @@ function showAnswerChoices() {
   }
 }
 
+
 function showcorrectAnswer() {
-    let renderAnswer = STORE.questions[STORE.currentQuestion];
-    for (let i = 0; i < item.answer.length; i++) {
-        $('#js-answer').append(`
-            <input type = "radio" name="answer" id="answer${i+1}" value= "${item.answer[i]}" tabindex ="${i+1}"> 
-            <label for="answer${i+1}"> ${item.answer[i]}</label> <br/>
-            <span id="js-r${i+1}"></span>
-            `);
-  }     
+    $("#answer").on("click", function (event) {
+        event.preventDefault();
+    });
+    let renderAnswer = STORE.questions[STORE.currentQuestion].answer;
+    let clickedAnswer = $( "input[type=radio][name=answers]:checked" ).val();
+    
+
+
+
+    displayNewQuestion();
+
     $("#view_startQuiz").hide();
     $("#view_answer").show();
     $("#view_question").html(questionHtml);
