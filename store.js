@@ -4,12 +4,14 @@ const STORE = {
             question: "What caused the Black Death/Bubonic Plague?",
             questionImage: "Quiz-App-Bubonic-Plague-Bacteria-Image.jpeg",
             answers: [
-                "Bacteria Yersinia Pestis",
+                "Bacteria",
                 "Virus",
                 "Parasite",
                 "Killer Bees"
             ],
-            answer: "Bacteria Yersinia Pestis"
+            answer: "Bacteria",
+            answerDescription: "A Bacteria called Yersinia Pestis",
+
         },
         {
             question: "How many people did the Black Death/Bubonic Plague kill?",
@@ -20,7 +22,8 @@ const STORE = {
                 "1 trillion people",
                 "2.5-3 billion people"
             ],
-            answer: "75-200 million people"
+            answer: "75-200 million people",
+            answerDescription: "75-200 million people. It wiped out between 30-60% of Europe’s population in the mid 14th century",
         },
         {
             question: "What was the cause of the Spanish Flu?",
@@ -31,7 +34,8 @@ const STORE = {
                 "Virus" ,
                 "Aliens"
             ],
-            answer: "Virus"
+            answer: "Virus",
+            answerDescription: "Virus It was a severe type of H1N1",
         },
         {
             question:"What year did the Spanish Flu epidemic occur?",
@@ -42,7 +46,8 @@ const STORE = {
                 "2009",
                 "1918"
             ],
-            answer: "1918"
+            answer: "1918",
+            answerDescription: "1918 it was especially devastating as it occured directly in the aftermath of WWI",
         },
         {
             question:"What disease has killed the most people in human History?",
@@ -53,9 +58,10 @@ const STORE = {
                 "Malaria", 
                 "Corona Virus"
             ],
-            answer: "Malaria"
+            answer: "Malaria",
+            answerDescription: "Malaria has been estimated to have killed well over 1 billion people",
         },
     ],
     currentQuestion: 0,
-    Score: 0
+    score: 0
 };
