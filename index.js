@@ -21,9 +21,10 @@ function displayNewQuestion() {
     newQuestionAndScore();
     const questionHtml = $(`
             <form id="questionAndAnswers">
-                <img src="Images/${renderQuestion.questionImage}" height="180" width="220"/>
+                <img src="Images/${renderQuestion.questionImage}" alt="${renderQuestion.imageAlt}" height="180" width="220"/>
                 <legend>${renderQuestion.question}</legend>
-                <div id="js-answers"> </div>
+                <div id="js-answers">
+                </div>
                 <button type="submit" id="btn_answer">Submit</button>
             </form>`);
     $("#view_startQuiz").hide();
@@ -44,7 +45,7 @@ function showAnswerChoices() {
     let item = STORE.questions[STORE.currentQuestion];
     for (let i = 0; i < item.answers.length; i++) {
         $('#js-answers').append(`
-        <input type="radio" name="answers" id="answers${i + 1}" value="${item.answers[i]}" tabindex ="${i + 1}"> 
+        <input type="radio" name="answers" id="answers${i + 1}" value="${item.answers[i]}" tabindex ="${i + 1}" required="required"> 
         <label for="answers${i + 1}"> ${item.answers[i]}</label> <br/>
         <span id="js-r${i + 1}"></span>
     `);
@@ -60,8 +61,17 @@ function showcorrectAnswer() {
     let renderAnswer = STORE.questions[STORE.currentQuestion].answerDescription;
     let correctAnswer = STORE.questions[STORE.currentQuestion].answer;
     let clickedAnswer = $("input[type=radio][name=answers]:checked").val();
+    let correct = clickedAnswer === correctAnswer;
+    if (!clickedAnswer) {
+        alert("Please choose an option");
+        return;
+      } 
+
+    const correctTag = `<div id="correct">CORRECT!</div>`;
+    const incorrectTag = `<div id="incorrect">Incorrect</div>`; 
     const answerHtml = `
     <div class="answer">
+     ${correct ? correctTag : incorrectTag}
         <legend>${renderAnswer}</legend>
     </div>
     <div class="next-button">
@@ -69,11 +79,11 @@ function showcorrectAnswer() {
     </div>
 `;
 
-    if (clickedAnswer == correctAnswer) {
+    if (correct) {
         STORE.score++
     }
     else {
-    }
+    };
 
     $("#btn_answer").hide();
     $("#view_answer").html(answerHtml);
@@ -110,6 +120,7 @@ function displayFinalScore() {
     $("#view_result").show();
 
     STORE.currentQuestion = 0;
+    STORE.score = 0;
 }
 
 function regesterHandlers() {

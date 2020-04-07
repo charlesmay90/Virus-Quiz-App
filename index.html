@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <title>Virus Quiz</title>
-  <meta name="description" type="A quiz about a couple of the most deadly diseases in history.">
+  <meta name="description" content="A quiz about a couple of the most deadly diseases in history.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="#">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
@@ -21,23 +21,24 @@
     </div>
   </header>
 
-  <main role="main" aria-live="assertive" class="display">
+  <main aria-live="assertive" class="display">
     <section id="view_startQuiz">
-        <div class="quiz-description">
-          <p>This is a quiz to test your general knowledge about a couple of the most deadly diseases.</p>
-        </div>
+      <h2>Start Quiz</h2>
+      <div class="quiz-description">
+        <p>This is a quiz to test your general knowledge about a couple of the most deadly diseases.</p>
+      </div>
       <div class="begin">
-        <button type="button" id="start"> Begin Quiz</button>
+        <button type="button" id="start">Begin Quiz</button>
       </div>
     </section>
     <section id="view_question"></section>
     <section id="view_answer"></section>
     <section id="view_result"></section>
   </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script src="store.js"></script>
+  <script src="index.js"></script>
+  
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<script src="store.js"></script>
-<script src="index.js"></script>
-
 </html>

@@ -2,13 +2,30 @@ body {
     font-family: "Roboto", sans-serif;
     color:rgb(0, 0, 0);
     margin:0;
-    background:cover;
+    background: cover;
     background-image: url('Quiz-App-Background-Image.jpeg');
     background-repeat: no-repeat;
     background-color: #262626;
     background-size: cover;
     background-attachment: fixed;
   }
+
+  #correct {
+    padding-top: 25px;;
+    font-size: 32px;
+    color:rgb(1, 197, 1);
+  }
+
+  #incorrect {
+    padding-top: 25px;
+    font-size: 32px;
+    color: red;
+  }
+
+  #js-answers {
+    padding-top: 25px;
+  }
+
 
   header {
     margin-top: 25px;
@@ -137,4 +154,20 @@ body {
   
   button:disabled {
     opacity:0.5;
+  }
+
+  /* Extra small devices (phones, 600px and down) */
+  @media screen and (max-width: 830px) {
+    body {
+    font-family: "Roboto", sans-serif;
+    color:rgb(0, 0, 0);
+    margin:0;
+    background: cover;
+    background-image: url('Quiz-App-Background-Image.jpeg');
+    background-repeat: no-repeat;
+    background-color: #262626;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    }
   }
